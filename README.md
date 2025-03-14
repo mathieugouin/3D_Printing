@@ -2,9 +2,11 @@
 
 Tools, config related to 3D printing.
 
-## Ender-3 V2
+# Creality Ender-3 V2
 
-### Terminal
+Modified for BL-Touch.
+
+## Terminal
 
 Refer to `test.gcode` for example.
 
@@ -19,7 +21,8 @@ python3 -m serial.tools.miniterm /dev/ttyUSB0 115200 --echo --develop
 
 G-Code commands can be directly entered in the terminal.
 
-### Specifications:
+## Specifications
+
 From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Technology: FDM 3D Printer
 * Assembly: Assembly kit
@@ -40,7 +43,8 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Machine weight: 7.8kg
 * Board Version: Creality V4.2.2 Board 32 Bit with TMC 2209 Driver
 
-### Menus & Configs
+## Menus & Configs
+
 * Media >
     * List of all `*.gcode` files in the micro SD card
 * Prepare >
@@ -146,7 +150,8 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Advanced >
     * TBD
 
-### Print Steps
+## Print Steps
+
 * Control, Temperature, Bed temp: 60
 * Prepare, Bed Tramming, Tramming Wizard
 * Prepare, Auto Build Mesh (about 3min)
