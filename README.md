@@ -146,5 +146,10 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Advanced >
     * TBD
 
-
+### Print Steps
+* Control, Temperature, Bed temp: 60
+* Prepare, Bed Tramming, Tramming Wizard
+* Prepare, Auto Build Mesh (about 3min)
+* Prepare, Z Probe Wizard
+* TBD
 
