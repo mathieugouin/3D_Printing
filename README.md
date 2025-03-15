@@ -80,7 +80,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
         * Home X
         * Home Y
         * Home Z
-    * Auto Build Mesh: will heat the bed and probe the NxN grid as specified in TBD.  If the bed is already pre-heated, takes 3 minutess.
+    * Auto Build Mesh: will heat the bed and probe the NxN grid as specified in 'Mesh Points'.  If the bed is already pre-heated, takes about 3 minutess.
     * Z Probe Wizard >
         * Auto Home
         * Move Z to Home
@@ -144,17 +144,147 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
     * Restore Defaults
     * Reboot Rpinter
     * Info Screen >
-        * Machine Name Ender: `Ender3V2-422-BLTUBL-MPC`
-        * Size: `230x230x250`
+        * Machine Name: Ender3V2-422-BLTUBL-MPC
+        * Size: 230x230x250
         * Professional Firmware: Version 2.1.3 MRiscoC ; 20230904 - 09:57 ; OFFICIAL BUILD
 * Advanced >
-    * TBD
+    * Store Settings
+    * Mesh Leveling >
+        * Mesh Points (9x9)
+        * Mesh Inset >
+            * Mesh X Minimum (10)
+            * Mesh X Maximum (204.4)
+            * Mesh Y Minimum (10)
+            * Mesh Y Maximum (220)
+            * Maximize Area
+            * Center Area
+        * Bed Temp (60)
+        * Fade Height (10)
+        * Auto Build Mesh: will heat the bed and probe the NxN grid as specified in 'Mesh Points'.  If the bed is already pre-heated, takes about 3 minutess.
+        * Memory Slot (0)
+        * Save Bed Mesh
+        * Load Bed Mesh
+        * Tilting Grid Size (1)
+        * Tilt Mesh
+        * Smart Fill-in
+        * Mesh reset
+        * Edit Mesh >
+            * Moving to Probing Pos (false)
+            * Index X (0)
+            * Index Y (0)
+            * Z Value (0.23): varies according to bed
+            * Probing Z Reference
+        * View Mesh >
+            * Continue
+        * Probe Settings >
+            * Probe X Offset (-43.6)
+            * Probe Y Offset (-10)
+            * Probe Z Offset (-2.86): This value changes according to probe z offset calibration
+            * Z Feed Rate (480)
+            * Multiple Probing (0)
+            * Stow Z-Probe
+            * Deploy Z-Probe
+            * Reset
+            * Enable HS mode (true)
+            * M48 Probe Test
+        * Filament Settings >
+            * Enable Runout (false)
+            * Runout Active (LOW)
+            * Runout Dist mm (25)
+            * Invert Extruder (false)
+            * Extruder Min Temp. (180)
+            * Load mm (0)
+            * Unload mm (100)
+            * Firmware Retract >
+                * Retract mm (5)
+                * Retract Speed (40)
+                * Hop mm (0.2)
+                * Recover Speed (40)
+                * Unretr. Extra (0)
+        * MPC Settings >
+            * MPC Autotune
+            * Heater Power (40)
+            * Heat Capacity (14.4)
+            * Sensor Resp. (0.2187)
+            * Ambient Coeff. (0.1257)
+            * Fan coeff. (0.1315)
+        * Bed PID Settings >
+            * Bed PID
+            * Temperature (60)
+            * PID Cycles (5)
+            * Set Kp: (462.1)
+            * Set Ki: (85.47)
+            * Set Kd: (624.59)
+            * Store Settings
+        * Physical settings >
+            * X bed size (230)
+            * Y bed size (230)
+            * X min position (0)
+            * Y min position (0)
+            * X max position (248)
+            * Y max position (231)
+            * Z max position (250)
+            * Park Head >
+                * Park X Position (240)
+                * Park Y Position (221)
+                * Park Z Raise (20)
+        * Toolbar Setup >
+            * Auto Home
+            * Tramming Wizard
+            * Z Probe Wizard
+            * Auto build Mesh
+            * Disable Steppers
+        * End-stops diag. >
+            * x_min: open
+            * y_min: open
+            * z_min: TRIGGERED
+            * filament: TRIGGERED
+            * Continue
+        * Printer Stats >
+            * Print Count: 379
+            * Completed: 372
+            * Print Time: 18d 00:04
+            * Longest Job Time: 0d 08:20
+            * Extruded Total: 1236.17 m
+            * Continue
+        * Reset Print Count >
+            * Please confirm Reset Print Stats?
+            * Confirm
+            * Cancel
+        * Lock Screen: then, need to slide to the center and press knob to unlock
+        * Enable sound (true)
+        * Power Outage (false)
+        * Media Update (false)
+        * 115K baud (true)
+        * LCD Brightness (108)
+        * Turn Off LCD
+        * Select Colors >
+            * Restore Defaults
+            * Screen Background
+            * Cursor
+            * Title Background
+            * Title Text
+            * Text
+            * Selected
+            * Split Line
+            * Highlight
+            * Status Background
+            * Statuc Text
+            * Popup Background
+            * Popup Text
+            * Alert Background
+            * Alert Text
+            * Percent Text
+            * Bar Fill
+            * Indicator value
+            * Coordinate value
 
 ## Print Steps
 
 * Control, Temperature, Bed temp: 60
+* Wait for bed temperature to raise to 60
 * Prepare, Bed Tramming, Tramming Wizard
+* Prepare, Z Probe Wizard: paper sheet trick
 * Prepare, Auto Build Mesh (about 3min)
-* Prepare, Z Probe Wizard
 * TBD
 
