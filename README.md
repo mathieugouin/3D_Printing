@@ -172,7 +172,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
             * Moving to Probing Pos (false)
             * Index X (0)
             * Index Y (0)
-            * Z Value (0.23): varies according to bed
+            * Z Value (0.23): varies according to x/y index point selection
             * Probing Z Reference
         * View Mesh >
             * Continue
