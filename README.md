@@ -80,7 +80,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
         * Home X
         * Home Y
         * Home Z
-    * Auto Build Mesh: will heat the bed and probe the NxN grid as specified in 'Mesh Points'.  If the bed is already pre-heated, takes about 3 minutess.
+    * Auto Build Mesh: will heat the bed and probe the NxN grid as specified in 'Mesh Points'.  If the bed is already pre-heated, takes about 3 minutes for 9x9.
     * Z Probe Wizard >
         * Auto Home
         * Move Z to Home
@@ -160,7 +160,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
             * Center Area
         * Bed Temp (60)
         * Fade Height (10)
-        * Auto Build Mesh: will heat the bed and probe the NxN grid as specified in 'Mesh Points'.  If the bed is already pre-heated, takes about 3 minutess.
+        * Auto Build Mesh: will heat the bed and probe the NxN grid as specified in 'Mesh Points'.  If the bed is already pre-heated, takes about 3 minutes for 9x9.
         * Memory Slot (0)
         * Save Bed Mesh
         * Load Bed Mesh
