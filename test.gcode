@@ -6,7 +6,7 @@ G0 X110 Y110 Z125 ; Move x, y, z center
 G0 F5000 ; Fast feed rate
 G0 F1000 ; Slow feed rate
 
-
+M0 ; Wait for user input
 M117 Hello World! ; Print on the LCD
 
 ; Setup ******************
@@ -27,7 +27,8 @@ M104 S0 ; Cooldown hotend to 0 C but don't wait
 
 ; Diag ****************
 
-M300 P100 S440 ; Play sound (frequency not taken into account?)
+
+M300 P100 S440 ; Play sound (frequency not taken into account because only a simple buzzer)
 
 M115 ; Send diag info on serial port
 
