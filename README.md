@@ -4,7 +4,10 @@ Tools, config related to 3D printing.
 
 # Creality Ender-3 V2
 
-Modified for BL-Touch.
+* Modified for BL-Touch.
+* Firmware:
+    * https://github.com/mriscoc/Ender3V2S1/releases/tag/20240122
+    * Ender3V2-422-BLTUBL-MPC-20240125.bin
 
 ## Terminal
 
@@ -146,7 +149,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
     * Info Screen >
         * Machine Name: Ender3V2-422-BLTUBL-MPC
         * Size: 230x230x250
-        * Professional Firmware: Version 2.1.3 MRiscoC ; 20230904 - 09:57 ; OFFICIAL BUILD
+        * Professional Firmware: Version 2.1.3 MRiscoC ; 20240125 - 01:18 ; OFFICIAL BUILD
 * Advanced >
     * Store Settings
     * Mesh Leveling >
@@ -285,6 +288,6 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Wait for bed temperature to raise to 60
 * Prepare, Bed Tramming, Tramming Wizard
 * Prepare, Z Probe Wizard: paper sheet trick
-* Prepare, Auto Build Mesh (about 3min)
+* Prepare, Auto Build Mesh (about 3min), then Save
 * TBD
 
