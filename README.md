@@ -204,10 +204,10 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
     * MPC Settings >
         * MPC Autotune
         * Heater Power (40)
-        * Heat Capacity (14.4)
-        * Sensor Resp. (0.2187)
-        * Ambient Coeff. (0.1257)
-        * Fan coeff. (0.1315)
+        * Heat Capacity (14.08)
+        * Sensor Resp. (0.2226)
+        * Ambient Coeff. (0.1030)
+        * Fan coeff. (0.1098)
     * Bed PID Settings >
         * Bed PID
         * Temperature (60)
