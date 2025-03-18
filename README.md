@@ -212,9 +212,9 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
             * Bed PID
             * Temperature (60)
             * PID Cycles (5)
-            * Set Kp: (462.1)
-            * Set Ki: (85.47)
-            * Set Kd: (624.59)
+            * Set Kp: (136.27)
+            * Set Ki: (26.61)
+            * Set Kd: (465.13)
             * Store Settings
         * Physical settings >
             * X bed size (230)
