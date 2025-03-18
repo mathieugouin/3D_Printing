@@ -49,7 +49,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 ## Menus & Configs
 
 * Media >
-    * List of all `*.gcode` files in the micro SD card
+    * List of all `*.gcode` files in the micro SD card, select the one to print and print it.
 * Prepare >
     * Filament Management >
         * Park Head
@@ -139,7 +139,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
             * X Steps/mm (80)
             * Y Steps/mm (80)
             * Z Steps/mm (400)
-            * E Steps/mm (102.3)
+            * E Steps/mm (101.3)
         * Flow (100)
         * Speed (100)
     * Store Settings
