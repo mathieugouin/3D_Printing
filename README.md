@@ -289,5 +289,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Prepare, Bed Tramming, Tramming Wizard
 * Prepare, Z Probe Wizard: paper sheet trick
 * Prepare, Auto Build Mesh (about 3min), then Save
-* TBD
-
+* Prepare, Filament Management, Preheat Hotend, Preheat PLA
+* Prepare, Filament Management, Load Filament
+* Insert micro SD card with the sliced `*.gcode` file
+* Media, Select the gcode file to print
