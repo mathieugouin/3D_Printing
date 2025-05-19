@@ -180,8 +180,8 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
         * View Mesh >
             * Continue
     * Probe Settings >
-        * Probe X Offset (-43.6)
-        * Probe Y Offset (-10)
+        * Probe X Offset (-44.6)
+        * Probe Y Offset (-5.5)
         * Probe Z Offset (-2.86): This value changes according to probe z offset calibration
         * Z Feed Rate (480)
         * Multiple Probing (0)
