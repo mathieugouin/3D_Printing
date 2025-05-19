@@ -287,9 +287,9 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Control, Temperature, Bed temp: 60
 * Wait for bed temperature to raise to 60
 * Prepare, Bed Tramming, Tramming Wizard
-* Prepare, Z Probe Wizard: paper sheet trick
 * Prepare, Auto Build Mesh (about 3min), then Save
 * Prepare, Filament Management, Preheat Hotend, Preheat PLA
+* Prepare, Z Probe Wizard: paper sheet trick
 * Prepare, Filament Management, Load Filament
 * Insert micro SD card with the sliced `*.gcode` file
 * Media, Select the gcode file to print
