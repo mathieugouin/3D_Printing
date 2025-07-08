@@ -83,11 +83,11 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
         * Home X
         * Home Y
         * Home Z
-    * Auto Build Mesh: will heat the bed and probe the NxN grid as specified in 'Mesh Points'.  If the bed is already pre-heated, takes about 3 minutes for 9x9.
+    * Auto Build Mesh: _will heat the bed and probe the NxN grid as specified in 'Mesh Points'.  If the bed is already pre-heated, takes about 3 minutes for 9x9._
     * Z Probe Wizard >
         * Auto Home
         * Move Z to Home
-        * Probe Z Offset (-2.93): Use this to make sure only a sheet of paper passes between the hot end and the bed.
+        * Probe Z Offset (-2.00): _Use this to make sure only a sheet of paper passes between the hot end and the bed._
     * Preheat PLA
     * Preheat ABS
     * Preheat PETG
@@ -139,7 +139,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
             * X Steps/mm (80)
             * Y Steps/mm (80)
             * Z Steps/mm (400)
-            * E Steps/mm (101.3)
+            * E Steps/mm (98.8)
         * Flow (100)
         * Speed (100)
     * Store Settings
@@ -153,17 +153,18 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Advanced >
     * Store Settings
     * Mesh Leveling >
-        * Mesh Points (9x9)
+        * Mesh Points X (9)
+        * Mesh Points Y (9)
         * Mesh Inset >
             * Mesh X Minimum (10)
-            * Mesh X Maximum (204.4)
+            * Mesh X Maximum (203)
             * Mesh Y Minimum (10)
             * Mesh Y Maximum (220)
             * Maximize Area
             * Center Area
         * Bed Temp (60)
         * Fade Height (10)
-        * Auto Build Mesh: will heat the bed and probe the NxN grid as specified in 'Mesh Points'.  If the bed is already pre-heated, takes about 3 minutes for 9x9.
+        * Auto Build Mesh: _will heat the bed and probe the NxN grid as specified in 'Mesh Points'.  If the bed is already pre-heated, takes about 3 minutes for 9x9._
         * Memory Slot (0)
         * Save Bed Mesh
         * Load Bed Mesh
@@ -175,21 +176,21 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
             * Moving to Probing Pos (false)
             * Index X (0)
             * Index Y (0)
-            * Z Value (0.23): varies according to x/y index point selection
+            * Z Value (0.23): _Varies according to x/y index point selection_
             * Probing Z Reference
         * View Mesh >
             * Continue
     * Probe Settings >
         * Probe X Offset (-44.6)
         * Probe Y Offset (-5.5)
-        * Probe Z Offset (-2.86): This value changes according to probe z offset calibration
+        * Probe Z Offset (-2.00): _This value changes according to probe Z offset calibration_
         * Z Feed Rate (480)
         * Multiple Probing (0)
         * Stow Z-Probe
         * Deploy Z-Probe
         * Reset
         * Enable HS mode (true)
-        * M48 Probe Test
+        * M48 Probe Test: _Will probe the bed 10 times and display the deviation value_
     * Filament Settings >
         * Enable Runout (false)
         * Runout Active (LOW)
@@ -205,14 +206,14 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
             * Recover Speed (40)
             * Unretr. Extra (0)
     * MPC Settings >
-        * MPC Autotune
+        * MPC Autotune: _Will perform automatic tuning of the hotend controller parameters_
         * Heater Power (40)
-        * Heat Capacity (14.08)
-        * Sensor Resp. (0.2226)
-        * Ambient Coeff. (0.1030)
-        * Fan coeff. (0.1098)
+        * Heat Capacity (15.58)
+        * Sensor Resp. (0.1960)
+        * Ambient Coeff. (0.1005)
+        * Fan coeff. (0.1130)
     * Bed PID Settings >
-        * Bed PID
+        * Bed PID: _Will perform automatic tuning of the bed heater controller parameters_
         * Temperature (60)
         * PID Cycles (5)
         * Set Kp: (136.27)
@@ -220,13 +221,13 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
         * Set Kd: (465.13)
         * Store Settings
     * Physical settings >
-        * X bed size (230)
-        * Y bed size (230)
         * X min position (0)
         * Y min position (0)
         * X max position (248)
         * Y max position (231)
         * Z max position (250)
+        * X bed size (230)
+        * Y bed size (230)
         * Park Head >
             * Park X Position (240)
             * Park Y Position (221)
