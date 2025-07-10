@@ -6,7 +6,7 @@
 ; #############################################################################
 G28 ; home all, after in relative position
 G90 ; Set all axes to absolute position
-M83; Sets the extruder to relative movement
+M83 ; Sets the extruder to relative movement
 
 G0 X110 Y110 Z125 ; Move x, y, z center
 G0 F5000 ; Fast feed rate
@@ -48,9 +48,9 @@ M111 S247 ; 255 - 8: Enable everything except dry-run mode
 ; #############################################################################
 
 M117 Calibrating extruder
-M83; Sets the extruder to relative movement
-M18 S60; Keeps the steppers alive for an additional minute after extrusion
-M109 T0 R215; Sets the active extruder and hot end temperature and waits for it to be achieved
-G1 E100 F100; Extrudes 100 mm of filament at a rate of 100 mm per minute
-G4 S90; Waits 90 seconds for the filament to finish extruding (otherwise extrusion stops when the hot end cools)
-M104 S0; Sets hot end temperature to 0, but doesn't wait for it to be achieved
+M83 ; Sets the extruder to relative movement
+M18 S60 ; Keeps the steppers alive for an additional minute after extrusion
+M109 T0 R215 ; Sets the active extruder and hot end temperature and waits for it to be achieved
+G1 E100 F100 ; Extrudes 100 mm of filament at a rate of 100 mm per minute
+G4 S90 ; Waits 90 seconds for the filament to finish extruding (otherwise extrusion stops when the hot end cools)
+M104 S0 ; Sets hot end temperature to 0, but doesn't wait for it to be achieved
