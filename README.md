@@ -285,6 +285,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 
 ## Print Steps
 
+* Control, Motion, Steps/mm, E Steps/mm: _Adjust according to filament.  If unsure, perform the 100mm extrusion/120mm mark trick._
 * Control, Temperature, Bed temp: 60
 * Wait for bed temperature to raise to 60
 * Prepare, Bed Tramming, Tramming Wizard
