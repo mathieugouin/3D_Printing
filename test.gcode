@@ -27,6 +27,17 @@ M104 S215 ; Warmup hotend to 215 C but don't wait
 M104 S0 ; Cooldown hotend to 0 C but don't wait
 
 ; #############################################################################
+; # Bed Leveling
+; #############################################################################
+
+; From: https://github.com/mriscoc/Ender3V2S1/wiki/Slicer-G-code-Scripts
+G29 L0 ; Load mesh from slot 0 (or use any other previously saved slot)
+G29 F10.0 ; Set Fade Height for correction at 10.0 mm.
+G29 A ; Activate UBL
+G29 T0 ; Print mesh map
+G29 T1 ; Print mesh map (TSV)
+
+; #############################################################################
 ; # Diag
 ; #############################################################################
 
@@ -34,7 +45,7 @@ M0 ; Wait for user input
 
 M117 Hello World! ; Print on the LCD
 
-M300 P100 S440 ; Play sound (frequency not taken into account because only a simple buzzer)
+M300 S440 P2000 ; Play sound 440 Hz, 2000 ms (frequency not taken into account because only a simple buzzer)
 
 M115 ; Send diag info on serial port
 
@@ -42,6 +53,8 @@ M118 Hello world ; print on the serial port
 
 ; echo:DEBUG:ECHO,INFO,ERRORS,COMMUNICATION
 M111 S247 ; 255 - 8: Enable everything except dry-run mode
+
+M504 ; Dump eeprom content
 
 ; #############################################################################
 ; # Extruder calibration
