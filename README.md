@@ -149,9 +149,9 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
     * Restore Defaults
     * Reboot Rpinter
     * Info Screen >
-        * Machine Name: Ender3V2-422-BLTUBL-MPC
+        * Machine Name: Ender3V2-422-BLTUBL-LA-MPC
         * Size: 230x230x250
-        * Professional Firmware: Version 2.1.3 MRiscoC ; 20240125 - 01:18 ; OFFICIAL BUILD
+        * Professional Firmware: Version 2.1.3 MRiscoC ; 20240127 - 14:13 ; OFFICIAL BUILD
 * Advanced >
     * Store Settings
     * Mesh Leveling >
