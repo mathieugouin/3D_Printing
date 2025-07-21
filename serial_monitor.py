@@ -40,19 +40,22 @@ atexit.register(readline.write_history_file, HISTORY_FILE)
 # === Configuration ===
 PORT = '/dev/ttyUSB0'   # Replace with your printer's serial port
 BAUD = 115200
-LINE_DELAY = 0.1        # Seconds to wait between lines (tune for your printer)
+LINE_DELAY = 0.01        # Seconds to wait between lines (tune for your printer)
+
 
 def send_line(ser, line):
     line = line.strip()
-    if not line:
-        return
-    print(f">>> {line}")
-    ser.write((line + '\n').encode())
-    time.sleep(LINE_DELAY)
+    # Skip empty lines and comments
+    if not line or line.startswith(';'):
+        print(f">>> {line}")
+        ser.write((line + '\n').encode())
+        time.sleep(LINE_DELAY)
+    # But still check the serial port for responses
     while ser.in_waiting:
         response = ser.readline().decode(errors='ignore').strip()
         if response:
             print(f"<< {response}")
+
 
 def send_file(ser, filepath):
     if not os.path.exists(filepath):
@@ -60,9 +63,8 @@ def send_file(ser, filepath):
         return
     with open(filepath) as f:
         for line in f:
-            line = line.strip()
-            if line and not line.startswith(';'):  # Skip empty lines and comments
-                send_line(ser, line)
+            send_line(ser, line)
+
 
 def print_help():
     print("Commands:")
@@ -72,6 +74,7 @@ def print_help():
     print("  :exit                      # Quit the program")
     print("Press Ctrl+D to exit or type ':exit'.")
 
+
 def main():
     print(f"Connecting to {PORT} at {BAUD} baud...")
     try:
@@ -80,8 +83,7 @@ def main():
         print(f"Could not open serial port: {e}")
         sys.exit(1)
 
-    # time.sleep(2)  # Let printer reset
-    print("Connected. Type G-code commands or ':send path/to/file.gcode'. Type ':exit' to quit.\n")
+    print("Connected. Type G-code commands or ':send path/to/file.gcode'. Type ':exit' or Ctrl+D to quit.\n")
 
     try:
         while True:
@@ -102,6 +104,7 @@ def main():
     finally:
         print("Closing connection.")
         ser.close()
+
 
 if __name__ == "__main__":
     main()
