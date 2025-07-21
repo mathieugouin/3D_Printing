@@ -60,7 +60,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
             * Preheat ABS
             * Preheat PETG
             * Preheat CUSTOM
-            * Cooldown
+            * Cooldown: _Will set the hotend temperature to 0 C._
         * Firmware Retract
         * Change Filament
         * Unload Filament
@@ -79,13 +79,13 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
         * Front Right
         * Back Left
         * Back Right
-    * Disable Steppers
+    * Disable Steppers: _Allow to freely move by hand the x/y/z axis._
     * Homing >
         * Auto Home
         * Home X
         * Home Y
         * Home Z
-    * Auto Build Mesh: _will heat the bed and probe the NxN grid as specified in 'Mesh Points'.  If the bed is already pre-heated, takes about 3 minutes for 9x9._
+    * Auto Build Mesh: _Will heat the bed and probe the NxN grid as specified in 'Mesh Points'.  If the bed is already pre-heated, takes about 3 minutes for 9x9._
     * Z Probe Wizard >
         * Auto Home
         * Move Z to Home
@@ -94,14 +94,14 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
     * Preheat ABS
     * Preheat PETG
     * Preheat CUSTOM
-    * Cooldown
+    * Cooldown: _Will set the temperature to 0 C for both the hotend and the bed._
 * Control >
     * Temperature >
         * Hotend Temp (0)
         * Bed Temp (0)
         * Fan Speed (0)
         * Preheat PLA Conf >
-            * Hotend Temp (215)
+            * Hotend Temp (210)
             * Bed Temp (60)
             * Fan Speed (255)
             * Store Settings
@@ -116,7 +116,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
             * Fan Speed (128)
             * Store Settings
         * Preheat CUSTOM Conf >
-            * Hotend Temp (190)
+            * Hotend Temp (180)
             * Bed Temp (50)
             * Fan Speed (128)
             * Store Settings
@@ -129,13 +129,10 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
         * Acceleration >
             * Max X Accel (500)
             * Max Y Accel (500)
-            * Max Z Accel (500)
-            * Max E Accel (5000)
-        * Jerk >
-            * Max X Jerk (8)
-            * Max Y Jerk (8)
-            * Max Z Jerk (0.4)
-            * Max E Jerk (5)
+            * Max Z Accel (100)
+            * Max E Accel (1000)
+        * Junction Dev (0.100)
+        * Advance K (0.180)
         * Step Smoothing (true)
         * Steps/mm >
             * X Steps/mm (80)
@@ -292,7 +289,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Wait for bed temperature to raise to 60
 * Prepare, Bed Tramming, Tramming Wizard
 * Prepare, Auto Build Mesh (about 3min), then Save
-* Prepare, Filament Management, Preheat Hotend, Preheat PLA
+* Prepare, Filament Management, Preheat Hotend, Preheat PLA: _It is important to preheat the hotend before doing the Z probe offset to account for the thermal expansion of the hotend._
 * Prepare, Z Probe Wizard: paper sheet trick
 * Prepare, Filament Management, Load Filament
 * Insert micro SD card with the sliced `*.gcode` file
