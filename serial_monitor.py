@@ -1,8 +1,41 @@
+"""
+Interactive Serial Monitor for 3D Printer G-code
+
+This script provides a command-line interface to communicate with a 3D printer
+over a serial connection. It allows users to send individual G-code commands
+or entire G-code files to the printer, and displays responses in real time.
+
+Features:
+- Interactive prompt with command history (arrow keys supported)
+- Send single G-code lines or entire files (':send path/to/file.gcode')
+- Saves command history to ~/.gcode_history
+- Graceful handling of serial connection and program exit
+
+Usage:
+    python serial_monitor.py
+
+Configuration:
+    Edit PORT, BAUD, and LINE_DELAY at the top of the script as needed.
+"""
+
+# Import necessary libraries
 import serial
 import readline  # Enables arrow key history in interactive mode
 import time
 import sys
 import os
+import atexit
+
+
+HISTORY_FILE = os.path.expanduser("~/.gcode_history")
+
+# Load history if available
+if os.path.exists(HISTORY_FILE):
+    readline.read_history_file(HISTORY_FILE)
+
+# Save history when the program exits
+atexit.register(readline.write_history_file, HISTORY_FILE)
+
 
 # === Configuration ===
 PORT = '/dev/ttyUSB0'   # Replace with your printer's serial port
@@ -29,6 +62,14 @@ def send_file(ser, filepath):
         for line in f:
             send_line(ser, line)
 
+def print_help():
+    print("Commands:")
+    print("  Type G-code commands directly.")
+    print("  :send path/to/file.gcode   # Send all lines from a G-code file")
+    print("  :help                      # Show this help message")
+    print("  :exit                      # Quit the program")
+    print("Press Ctrl+D to exit or type ':exit'.")
+
 def main():
     print(f"Connecting to {PORT} at {BAUD} baud...")
     try:
@@ -37,18 +78,21 @@ def main():
         print(f"Could not open serial port: {e}")
         sys.exit(1)
 
-    time.sleep(2)  # Let printer reset
+    # time.sleep(2)  # Let printer reset
     print("Connected. Type G-code commands or ':send path/to/file.gcode'. Type ':exit' to quit.\n")
 
     try:
         while True:
             try:
                 cmd = input("GCODE> ")
+                cmd = cmd.strip()
             except EOFError:
                 break  # e.g., Ctrl+D
             if cmd.startswith(":send "):
                 path = cmd.split(" ", 1)[1]
                 send_file(ser, path)
+            elif cmd.startswith(":help"):
+                print_help()
             elif cmd == ":exit":
                 break
             else:
