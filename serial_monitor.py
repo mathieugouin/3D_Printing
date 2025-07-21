@@ -60,7 +60,9 @@ def send_file(ser, filepath):
         return
     with open(filepath) as f:
         for line in f:
-            send_line(ser, line)
+            line = line.strip()
+            if line and not line.startswith(';'):  # Skip empty lines and comments
+                send_line(ser, line)
 
 def print_help():
     print("Commands:")
