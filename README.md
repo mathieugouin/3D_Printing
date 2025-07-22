@@ -11,7 +11,9 @@ Webpage: https://mathieugouin.github.io/3D_Printing/
     * https://github.com/mriscoc/Ender3V2S1/releases/tag/20240122
     * Ender3V2-422-BLTUBL-MPC-20240125.bin
 
-## Basic Terminal
+## Terminal
+
+### Basic Terminal
 
 Refer to `test.gcode` for example.
 
@@ -26,7 +28,7 @@ python3 -m serial.tools.miniterm /dev/ttyUSB0 115200 --echo --develop
 
 G-Code commands can be directly entered in the terminal.
 
-## Advanced Terminal
+### Advanced Terminal
 
 ```bash
 # Defaults to: /dev/ttyUSB0 115200
@@ -42,7 +44,6 @@ python3 printerface.py
 
 :send macros/move.gcode
 ```
-
 
 ## Specifications
 
@@ -256,9 +257,9 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
         * Auto build Mesh
         * Disable Steppers
     * End-stops diag. >
-        * x_min: open
-        * y_min: open
-        * z_min: TRIGGERED
+        * x\_min: open
+        * y\_min: open
+        * z\_min: TRIGGERED
         * filament: TRIGGERED
         * Continue
     * Printer Stats >
