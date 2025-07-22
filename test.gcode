@@ -56,6 +56,8 @@ M118 Hello world ; print on the serial port
 ; echo:DEBUG:ECHO,INFO,ERRORS,COMMUNICATION
 M111 S247 ; 255 - 8: Enable everything except dry-run mode
 
+M503 ; Report Settings
+
 M504 ; Dump eeprom content
 
 ; #############################################################################
