@@ -45,15 +45,14 @@ def wait_for_ok(ser):
     combined_response = ""
     done = False
     while not done:
-        # print("!done")
         while ser.in_waiting:
-            # print("data avail")
             response = ser.readline().decode(errors='ignore').strip()
             if response:
                 combined_response += response + '\n'
                 print(f"<< {response}")
                 if response.startswith('ok'):
                     done = True
+        time.sleep(.001)  # 1ms sleep to not hog 100% cpu
     return combined_response
 
 
@@ -62,6 +61,7 @@ def send_line(ser, line):
     # Skip empty lines and comments
     if not line or line.startswith(';'):
         return
+    print(f">>> {line}")
     ser.write((line + '\n').encode())  # Send line to printer
     wait_for_ok(ser)
 
