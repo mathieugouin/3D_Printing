@@ -35,6 +35,7 @@ python3 printerface.py
 # Some commands:
 
 :send macros/init.gcode
+:send macros/mesh.gcode
 :send macros/heat.gcode
 :send macros/print.gcode
 :send macros/cooldown.gcode

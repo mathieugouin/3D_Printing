@@ -1,5 +1,4 @@
-M300 S440 P20 ; Beep
-G4 P200
+; Play some beeps
 
 M300 S440 P20 ; Beep
 G4 P200
@@ -13,3 +12,7 @@ G4 P200
 M300 S440 P20 ; Beep
 G4 P200
 
+M300 S440 P20 ; Beep
+G4 P200
+
+M117 sound.gcode
