@@ -15,7 +15,7 @@ Usage:
     python serial_monitor.py
 
 Configuration:
-    Edit PORT, BAUD, and LINE_DELAY at the top of the script as needed.
+    Edit PORT, BAUD at the top of the script as needed.
 """
 
 # Import necessary libraries
@@ -40,29 +40,39 @@ atexit.register(readline.write_history_file, HISTORY_FILE)
 # === Configuration ===
 PORT = '/dev/ttyUSB0'   # Replace with your printer's serial port
 BAUD = 115200
-LINE_DELAY = 0.01        # Seconds to wait between lines (tune for your printer)
+
+
+def wait_for_ok(ser):
+    combined_response = ""
+    done = False
+    while not done:
+        # print("!done")
+        while ser.in_waiting:
+            # print("data avail")
+            response = ser.readline().decode(errors='ignore').strip()
+            if response:
+                combined_response += response + '\n'
+                print(f"<< {response}")
+                if response.startswith('ok'):
+                    done = True
+    return combined_response
 
 
 def send_line(ser, line):
     line = line.strip()
     # Skip empty lines and comments
     if not line or line.startswith(';'):
-        print(f">>> {line}")
-        ser.write((line + '\n').encode())
-        time.sleep(LINE_DELAY)
-    # But still check the serial port for responses
-    while ser.in_waiting:
-        response = ser.readline().decode(errors='ignore').strip()
-        if response:
-            print(f"<< {response}")
+        return
+    ser.write((line + '\n').encode())  # Send line to printer
+    wait_for_ok(ser)
 
 
 def send_file(ser, filepath):
     if not os.path.exists(filepath):
         print(f"File not found: {filepath}")
         return
-    with open(filepath) as f:
-        for line in f:
+    with open(filepath) as fp:
+        for line in fp:
             send_line(ser, line)
 
 

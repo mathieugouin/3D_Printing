@@ -11,7 +11,7 @@ Webpage: https://mathieugouin.github.io/3D_Printing/
     * https://github.com/mriscoc/Ender3V2S1/releases/tag/20240122
     * Ender3V2-422-BLTUBL-MPC-20240125.bin
 
-## Terminal
+## Basic Terminal
 
 Refer to `test.gcode` for example.
 
@@ -25,6 +25,23 @@ python3 -m serial.tools.miniterm /dev/ttyUSB0 115200 --echo --develop
 ```
 
 G-Code commands can be directly entered in the terminal.
+
+## Advanced Terminal
+
+```bash
+# python3 serial_monitor.py /dev/ttyUSB0 115200
+python3 serial_monitor.py
+
+# Some commands:
+
+:send macros/init.gcode
+:send macros/heat.gcode
+:send macros/print.gcode
+:send macros/cooldown.gcode
+
+:send macros/move.gcode
+```
+
 
 ## Specifications
 
