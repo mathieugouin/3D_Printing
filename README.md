@@ -29,8 +29,8 @@ G-Code commands can be directly entered in the terminal.
 ## Advanced Terminal
 
 ```bash
-# python3 serial_monitor.py /dev/ttyUSB0 115200
-python3 serial_monitor.py
+# Defaults to: /dev/ttyUSB0 115200
+python3 printerface.py
 
 # Some commands:
 
