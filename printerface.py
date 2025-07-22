@@ -12,10 +12,7 @@ Features:
 - Graceful handling of serial connection and program exit
 
 Usage:
-    python serial_monitor.py
-
-Configuration:
-    Edit PORT, BAUD at the top of the script as needed.
+    python printerface.py serial_port baud
 """
 
 # Import necessary libraries
@@ -25,6 +22,8 @@ import time
 import sys
 import os
 import atexit
+import argparse
+
 
 
 HISTORY_FILE = os.path.expanduser("~/.gcode_history")
@@ -85,16 +84,35 @@ def print_help():
     print("Press Ctrl+D to exit or type ':exit'.")
 
 
-def main():
-    print(f"Connecting to {PORT} at {BAUD} baud...")
+def parse_args():
+    """Argument Parsing"""
+    parser = argparse.ArgumentParser(description="Simple G-code serial interface for 3D printers")
+    parser.add_argument(
+        "port", nargs="?", default="/dev/ttyUSB0",
+        help="Serial port to connect to (default: /dev/ttyUSB0)"
+    )
+    parser.add_argument(
+        "baud", nargs="?", type=int, default=115200,
+        help="Baud rate for serial communication (default: 115200)"
+    )
+
+    args = parser.parse_args()
+    return args.port, args.baud
+
+
+def serial_connect(port, baud):
+    print(f"Connecting to {port} at {baud} baud...")
     try:
-        ser = serial.Serial(PORT, BAUD, timeout=1)
+        ser = serial.Serial(port, baud, timeout=1)
     except serial.SerialException as e:
         print(f"Could not open serial port: {e}")
         sys.exit(1)
 
     print("Connected. Type G-code commands or ':send path/to/file.gcode'. Type ':exit' or Ctrl+D to quit.\n")
+    return ser
 
+
+def processing_loop(ser):
     try:
         while True:
             try:
@@ -114,6 +132,12 @@ def main():
     finally:
         print("Closing connection.")
         ser.close()
+
+
+def main():
+    port, baud = parse_args()
+    ser = serial_connect(port, baud)
+    processing_loop(ser)
 
 
 if __name__ == "__main__":
