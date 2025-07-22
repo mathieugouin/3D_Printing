@@ -19,3 +19,6 @@ G1 Z50 F500
 
 
 ; G1 E5 F2400 ; put back
+
+M300 S440 P100 ; Beep
+M117 print.gcode

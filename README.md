@@ -311,3 +311,33 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Prepare, Filament Management, Load Filament
 * Insert micro SD card with the sliced `*.gcode` file
 * Media, Select the gcode file to print
+
+# Notes
+
+## Slicing
+
+### Print
+
+Some extrusion moves to compare:
+
+| Z     | Motion  | E       | F    |
+| ------| ------- | ------- | ---- |
+| 0.28  | 130     | 10      | 1500 |
+| 0.28  | 130     | 10      | 1200 |
+| 0.2   | 145.028 | 5.51199 | 3000 |
+| 0.2   | 129.816 | 4.93381 | 3000 |
+
+Rough formula: `E = motion * .4 ^ 2 / 1.75 ^ 2 = 0.05224`
+
+### Retraction
+
+* E-5 F3600
+* E5 F2400
+
+### Wipe
+
+TBD
+
+# References
+
+* https://marlinfw.org/meta/gcode/
