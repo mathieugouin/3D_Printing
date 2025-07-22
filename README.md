@@ -287,6 +287,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Control, Motion, Steps/mm, E Steps/mm: _Adjust according to filament.  If unsure, perform the 100mm extrusion/120mm mark trick._
 * Control, Temperature, Bed temp: 60
 * Wait for bed temperature to raise to 60
+* Prepare, Homing, Auto Home: _This is important to deactivate any previously loaded mesh when performing the bed tramming._
 * Prepare, Bed Tramming, Tramming Wizard
 * Prepare, Auto Build Mesh (about 3min), then Save
 * Prepare, Filament Management, Preheat Hotend, Preheat PLA: _It is important to preheat the hotend before doing the Z probe offset to account for the thermal expansion of the hotend._
