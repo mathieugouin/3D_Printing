@@ -11,7 +11,7 @@ Webpage: https://mathieugouin.github.io/3D_Printing/
     * https://github.com/mriscoc/Ender3V2S1/releases/tag/20240122
     * Ender3V2-422-BLTUBL-MPC-20240125.bin
 
-## Terminal
+## Basic Terminal
 
 Refer to `test.gcode` for example.
 
@@ -25,6 +25,24 @@ python3 -m serial.tools.miniterm /dev/ttyUSB0 115200 --echo --develop
 ```
 
 G-Code commands can be directly entered in the terminal.
+
+## Advanced Terminal
+
+```bash
+# Defaults to: /dev/ttyUSB0 115200
+python3 printerface.py
+
+# Some commands:
+
+:send macros/init.gcode
+:send macros/mesh.gcode
+:send macros/heat.gcode
+:send macros/print.gcode
+:send macros/cooldown.gcode
+
+:send macros/move.gcode
+```
+
 
 ## Specifications
 
@@ -295,3 +313,33 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Prepare, Filament Management, Load Filament
 * Insert micro SD card with the sliced `*.gcode` file
 * Media, Select the gcode file to print
+
+# Notes
+
+## Slicing
+
+### Print
+
+Some extrusion moves to compare:
+
+| Z     | Motion  | E       | F    |
+| ------| ------- | ------- | ---- |
+| 0.28  | 130     | 10      | 1500 |
+| 0.28  | 130     | 10      | 1200 |
+| 0.2   | 145.028 | 5.51199 | 3000 |
+| 0.2   | 129.816 | 4.93381 | 3000 |
+
+Rough formula: `E = motion * .4 ^ 2 / 1.75 ^ 2 = 0.05224`
+
+### Retraction
+
+* E-5 F3600
+* E5 F2400
+
+### Wipe
+
+TBD
+
+# References
+
+* https://marlinfw.org/meta/gcode/
