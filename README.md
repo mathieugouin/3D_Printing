@@ -329,16 +329,37 @@ Some extrusion moves to compare:
 | 0.2   | 145.028 | 5.51199 | 3000 |
 | 0.2   | 129.816 | 4.93381 | 3000 |
 
-Rough formula: `E = motion * .4 ^ 2 / 1.75 ^ 2 = 0.05224`
+Rough formula:
+
+```
+E = motion * .4 ^ 2 / 1.75 ^ 2
+E = motion * 0.05224`
+```
 
 ### Retraction
 
-* E-5 F3600
-* E5 F2400
+* `E-5 F3600`
+* `E5 F2400`
 
 ### Wipe
 
 TBD
+
+# Development
+
+## fullcontrol
+
+Manual install wheel (not yet on pypi).
+
+```
+pip install fullcontrol-0.1.1-py3-none-any.whl
+```
+
+Run jupyter lab
+
+```
+jupyter-lab
+```
 
 # References
 
