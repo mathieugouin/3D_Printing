@@ -15,6 +15,16 @@ G0 X0 ; Only move X to 0 mm
 G0 X110 Y110 Z125 ; Move x, y, z center
 
 ; #############################################################################
+; # Retraction
+; #############################################################################
+G10 ; retract
+G11 ; un-retract
+M207 ; firmware retract: print settings
+M207 S6 F3600 Z0.2
+M208 ; firmware un-retract: print settings
+M208 S0 F2400 ; the un-retract is in addition to the retract length (hence 0)
+
+; #############################################################################
 ; # Temperature
 ; #############################################################################
 
