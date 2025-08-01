@@ -16,16 +16,20 @@ Usage:
 """
 
 # Import necessary libraries
-import serial
-import readline  # Enables arrow key history in interactive mode
-import time
-import sys
-import os
 import atexit
 import argparse
+import os
+import readline  # Enables arrow key history in interactive mode
+import sys
+import time
+import serial
 
 
+# Default serial parameters:
+PORT = '/dev/ttyUSB0'
+BAUD = 115200
 
+# Store command history
 HISTORY_FILE = os.path.expanduser("~/.gcode_history")
 
 # Load history if available
@@ -36,12 +40,8 @@ if os.path.exists(HISTORY_FILE):
 atexit.register(readline.write_history_file, HISTORY_FILE)
 
 
-# === Configuration ===
-PORT = '/dev/ttyUSB0'   # Replace with your printer's serial port
-BAUD = 115200
-
-
 def wait_for_ok(ser):
+    """Wait for the printer to complete command by responding with a line starting with 'ok'."""
     combined_response = ""
     done = False
     while not done:
@@ -57,6 +57,7 @@ def wait_for_ok(ser):
 
 
 def send_line(ser, line):
+    """Send a single command line to the printer and wait for the completion."""
     line = line.strip()
     # Skip empty lines and comments
     if not line or line.startswith(';'):
@@ -67,15 +68,22 @@ def send_line(ser, line):
 
 
 def send_file(ser, filepath):
+    """Send each line of a file to the printer."""
     if not os.path.exists(filepath):
         print(f"File not found: {filepath}")
         return
     with open(filepath) as fp:
         for line in fp:
-            send_line(ser, line)
+            if line.startswith(":send "):
+                filename = line.split(" ", 1)[1].strip()
+                path = os.path.join(os.path.dirname(os.path.abspath(filepath)), filename)
+                send_file(ser, path)
+            else:
+                send_line(ser, line)
 
 
 def print_help():
+    """Display the supported commands."""
     print("Commands:")
     print("  Type G-code commands directly.")
     print("  :send path/to/file.gcode   # Send all lines from a G-code file")
@@ -85,7 +93,7 @@ def print_help():
 
 
 def parse_args():
-    """Argument Parsing"""
+    """Argument parsing."""
     parser = argparse.ArgumentParser(description="Simple G-code serial interface for 3D printers")
     parser.add_argument(
         "port", nargs="?", default="/dev/ttyUSB0",
@@ -101,6 +109,7 @@ def parse_args():
 
 
 def serial_connect(port, baud):
+    """Connect to the printer serial port as speficied by port and baud."""
     print(f"Connecting to {port} at {baud} baud...")
     try:
         ser = serial.Serial(port, baud, timeout=1)
@@ -113,6 +122,7 @@ def serial_connect(port, baud):
 
 
 def processing_loop(ser):
+    """Main program interactive processing loop."""
     try:
         while True:
             try:
@@ -121,7 +131,7 @@ def processing_loop(ser):
             except EOFError:
                 break  # e.g., Ctrl+D
             if cmd.startswith(":send "):
-                path = cmd.split(" ", 1)[1]
+                path = cmd.split(" ", 1)[1].strip()
                 send_file(ser, path)
             elif cmd.startswith(":help"):
                 print_help()
@@ -135,6 +145,7 @@ def processing_loop(ser):
 
 
 def main():
+    """Get arguments, initialize the serial port and start the processing loop."""
     port, baud = parse_args()
     ser = serial_connect(port, baud)
     processing_loop(ser)
