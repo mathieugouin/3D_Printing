@@ -316,6 +316,18 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 
 # Notes
 
+## Calibration
+
+### Extruder Calibration
+
+```gcode
+M83 ; E relative
+G1 E100 F60 ; Extrude 100mm at 1mm/s (60mm/min)
+```
+
+New Step = Old Step * 100 / (120 - Remaining Length)
+
+
 ## Slicing
 
 ### Print
@@ -349,10 +361,16 @@ TBD
 
 ## fullcontrol
 
-Manual install wheel (not yet on pypi).
+Manual install wheel (not yet on pypi):
 
 ```
 pip install fullcontrol-0.1.1-py3-none-any.whl
+```
+
+Git install from repo:
+
+```
+pip install git+https://github.com/FullControlXYZ/fullcontrol
 ```
 
 Run jupyter lab
