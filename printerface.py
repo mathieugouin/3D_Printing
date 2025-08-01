@@ -72,7 +72,7 @@ def send_file(ser, filepath):
     if not os.path.exists(filepath):
         print(f"File not found: {filepath}")
         return
-    with open(filepath) as fp:
+    with open(filepath, encoding="utf-8") as fp:
         for line in fp:
             if line.startswith(":send "):
                 filename = line.split(" ", 1)[1].strip()
@@ -117,7 +117,11 @@ def serial_connect(port, baud):
         print(f"Could not open serial port: {e}")
         sys.exit(1)
 
-    print("Connected. Type G-code commands or ':send path/to/file.gcode'. Type ':exit' or Ctrl+D to quit.\n")
+    print(
+        "Connected. Type G-code commands or "
+        "':send path/to/file.gcode'. "
+        "Type ':exit' or Ctrl+D to quit.\n"
+    )
     return ser
 
 
