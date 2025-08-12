@@ -1,4 +1,4 @@
-; Turn on heat
+; Turn on heat on bed and hotend
 
 ; Move to corner to remove filament oozing while heating
 G1 Z50 F1000
