@@ -1,7 +1,7 @@
 ; print
 
 G1 X2 Y2 F5000
-G1 Z0.28 F500
+G1 Z0.2 F500
 G92 E0 ; Set E pos to 0 (reset)
 M83 ; use relative distances for extrusion
 
