@@ -89,7 +89,8 @@ def print_help():
     print("  :send path/to/file.gcode   # Send all lines from a G-code file")
     print("  :help                      # Show this help message")
     print("  :exit                      # Quit the program")
-    print("Press Ctrl+D to exit or type ':exit'.")
+    print("  Ctrl+D                     # Quit the program")
+    print("")
 
 
 def parse_args():
@@ -118,9 +119,10 @@ def serial_connect(port, baud):
         sys.exit(1)
 
     print(
-        "Connected. Type G-code commands or "
-        "':send path/to/file.gcode'. "
-        "Type ':exit' or Ctrl+D to quit.\n"
+        "Connected.\nType G-code commands or:\n"
+        "':send path/to/file.gcode'\n"
+        "':help for help\n"
+        "':exit' or Ctrl+D to quit.\n"
     )
     return ser
 
