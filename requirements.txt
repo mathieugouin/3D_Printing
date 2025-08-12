@@ -1,5 +1,7 @@
 # Libraries required
 pyserial
+# Ref: https://pip.pypa.io/en/stable/topics/vcs-support/
+fullcontrol @ git+https://github.com/FullControlXYZ/fullcontrol@main
 
 # To develop interactively
 jupyterlab
