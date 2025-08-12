@@ -20,7 +20,7 @@ Refer to `test.gcode` for example.
 Refer to: https://marlinfw.org/meta/gcode/ for G-Code reference.
 
 ```bash
-python3 -m serial.tools.miniterm /dev/ttyUSB0 115200 --echo --develop
+python -m serial.tools.miniterm /dev/ttyUSB0 115200 --echo --develop
 
 # --- Miniterm on /dev/ttyUSB0  115200,8,N,1 ---
 # --- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
@@ -32,7 +32,7 @@ G-Code commands can be directly entered in the terminal.
 
 ```bash
 # Defaults to: /dev/ttyUSB0 115200
-python3 printerface.py
+python printerface.py
 
 # Some commands:
 
@@ -120,7 +120,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
         * Bed Temp (0)
         * Fan Speed (0)
         * Preheat PLA Conf >
-            * Hotend Temp (210)
+            * Hotend Temp (220)
             * Bed Temp (60)
             * Fan Speed (255)
             * Store Settings
@@ -303,7 +303,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 
 ## Print Steps
 
-* Control, Motion, Steps/mm, E Steps/mm: _Adjust according to filament.  If unsure, perform the 100mm extrusion/120mm mark trick._
+* Control, Motion, Steps/mm, E Steps/mm: _Adjust according to filament.  If unsure, perform the 100mm extrusion/120mm mark trick (see below)._
 * Control, Temperature, Bed temp: 60
 * Wait for bed temperature to raise to 60
 * Prepare, Bed Tramming, Tramming Wizard
@@ -321,12 +321,21 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 ### Extruder Calibration
 
 ```gcode
+G0 X2 Y2 Z50 F5000 ; Position in corner
 M83 ; E relative
 G1 E100 F60 ; Extrude 100mm at 1mm/s (60mm/min)
+G1 F2000 ; Set back speed to normal
 ```
 
-New Step = Old Step * 100 / (120 - Remaining Length)
+Can also use:
 
+```
+:send macros/ext_calib.gcode
+```
+
+Then:
+
+`new_step = old_step * 100 / (120 - remaining_length)`
 
 ## Slicing
 
@@ -346,6 +355,18 @@ Rough formula:
 ```
 E = motion * .4 ^ 2 / 1.75 ^ 2
 E = motion * 0.05224`
+```
+
+Wolfram Alpha:
+
+* 100 mm print of .4 mm x .2 mm
+* Filament is 1.75 mm dia.
+* Fullcontrol extruded 3.326014 mm
+
+Volume in (filament pushed by the extruder gear) match the volume out (molten filament deposited on the bed).
+
+```
+.4mm * .2 mm * 100 mm / (3.326014 mm * pi * (1.75 mm / 2)^2)
 ```
 
 ### Retraction
