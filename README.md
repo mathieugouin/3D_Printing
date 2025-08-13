@@ -50,7 +50,7 @@ python printerface.py
 From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Technology: FDM 3D Printer
 * Assembly: Assembly kit
-* Build Size: 220*220*250mm
+* Build Size: 220x220x250mm
 * Nozzle Diameters: 0.4mm
 * Nozzle Count: 1
 * Max. Nozzle Temp: 255℃
@@ -61,9 +61,9 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Z-axis Precision: 0.004 mm
 * Max Print Speed: 120mm/s
 * Auto Levelling: NA
-* Supported files: STL，OBJ，G-Code
+* Supported files: STL, OBJ, G-Code
 * Connectivity: USB or SD CARD
-* Machine size: 475*470*620mm
+* Machine size: 475x470x620mm
 * Machine weight: 7.8kg
 * Board Version: Creality V4.2.2 Board 32 Bit with TMC 2209 Driver
 
@@ -404,3 +404,4 @@ jupyter-lab
 # References
 
 * https://marlinfw.org/meta/gcode/
+* https://github.com/FullControlXYZ/fullcontrol
