@@ -136,13 +136,16 @@ def processing_loop(ser):
                 cmd = cmd.strip()
             except EOFError:
                 break  # e.g., Ctrl+D
-            if cmd.startswith(":send "):
-                path = cmd.split(" ", 1)[1].strip()
-                send_file(ser, path)
-            elif cmd.startswith(":help"):
-                print_help()
-            elif cmd == ":exit":
-                break
+            if cmd.startswith(":"):  # Custom commands
+                if cmd.startswith(":send "):
+                    path = cmd.split(" ", 1)[1].strip()
+                    send_file(ser, path)
+                elif cmd == ":help":
+                    print_help()
+                elif cmd == ":exit":
+                    break
+                else:
+                    print(f"Unknown command: {cmd}")
             else:
                 send_line(ser, cmd)
     finally:
