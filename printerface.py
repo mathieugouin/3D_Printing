@@ -121,7 +121,7 @@ def serial_connect(port, baud):
     print(
         "Connected.\nType G-code commands or:\n"
         "':send path/to/file.gcode'\n"
-        "':help for help\n"
+        "':help' for help\n"
         "':exit' or Ctrl+D to quit.\n"
     )
     return ser
