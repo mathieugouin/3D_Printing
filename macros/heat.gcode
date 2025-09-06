@@ -1,8 +1,8 @@
 ; Turn on heat on bed and hotend
 
 ; Move to corner to remove filament oozing while heating
-G1 Z50 F1000
-G1 X2 Y2 F3000
+G0 Z50 F1000
+G0 X2 Y2 F3000
 
 ; Start heating both
 M140 S60 ; set bed temp (no wait)
