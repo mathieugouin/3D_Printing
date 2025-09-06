@@ -1,6 +1,6 @@
 ; Move head away to access the bed
 
-G1 Z150 F1000
+G1 Z100 F1000
 G1 X220 Y220 F8000
 
 G4
