@@ -9,7 +9,7 @@ Webpage: https://mathieugouin.github.io/3D_Printing/
 * Modified for BL-Touch.
 * Firmware:
     * https://github.com/mriscoc/Ender3V2S1/releases/tag/20240122
-    * Ender3V2-422-BLTUBL-MPC-20240125.bin
+    * Ender3V2-422-BLTUBL-LA-MPC-20240127.bin
 
 ## Terminal
 
