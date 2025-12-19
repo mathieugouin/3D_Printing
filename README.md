@@ -356,7 +356,7 @@ Rough formula:
 
 ```
 E = motion * .4 ^ 2 / 1.75 ^ 2
-E = motion * 0.05224`
+E = motion * 0.05224
 ```
 
 Wolfram Alpha:
