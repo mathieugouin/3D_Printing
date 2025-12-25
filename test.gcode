@@ -8,9 +8,21 @@ G28 ; home all, after in relative position
 G90 ; Set all axes to absolute position
 M83 ; Sets the extruder to relative movement
 
+G0 F5000 ; Fast feed rate (5000 mm / min)
+G0 F1000 ; Slow feed rate (1000 mm / min)
+
+G0 X0 ; Only move X to 0 mm
 G0 X110 Y110 Z125 ; Move x, y, z center
-G0 F5000 ; Fast feed rate
-G0 F1000 ; Slow feed rate
+
+; #############################################################################
+; # Retraction
+; #############################################################################
+G10 ; retract
+G11 ; un-retract
+M207 ; firmware retract: print settings
+M207 S6 F3600 Z0.2
+M208 ; firmware un-retract: print settings
+M208 S0 F2400 ; the un-retract is in addition to the retract length (hence 0)
 
 ; #############################################################################
 ; # Temperature
@@ -53,6 +65,8 @@ M118 Hello world ; print on the serial port
 
 ; echo:DEBUG:ECHO,INFO,ERRORS,COMMUNICATION
 M111 S247 ; 255 - 8: Enable everything except dry-run mode
+
+M503 ; Report Settings
 
 M504 ; Dump eeprom content
 

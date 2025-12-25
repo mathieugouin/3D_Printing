@@ -1,2 +1,6 @@
 # Libraries required
 pyserial
+fullcontrol
+
+# To develop interactively
+jupyterlab

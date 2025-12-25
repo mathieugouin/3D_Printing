@@ -8,17 +8,20 @@ Webpage: https://mathieugouin.github.io/3D_Printing/
 
 * Modified for BL-Touch.
 * Firmware:
-    * https://github.com/mriscoc/Ender3V2S1/releases/tag/20240122
-    * Ender3V2-422-BLTUBL-MPC-20240125.bin
+    * Linear Advance: https://github.com/mriscoc/Special_Configurations/releases/tag/LinearAdvance
+        * Official tags: https://github.com/mriscoc/Ender3V2S1/releases/tag/20240122
+    * Ender3V2-422-BLTUBL-LA-MPC-20240127.bin
 
 ## Terminal
+
+### Basic Terminal
 
 Refer to `test.gcode` for example.
 
 Refer to: https://marlinfw.org/meta/gcode/ for G-Code reference.
 
 ```bash
-python3 -m serial.tools.miniterm /dev/ttyUSB0 115200 --echo --develop
+python -m serial.tools.miniterm /dev/ttyUSB0 115200 --echo --develop
 
 # --- Miniterm on /dev/ttyUSB0  115200,8,N,1 ---
 # --- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
@@ -26,12 +29,29 @@ python3 -m serial.tools.miniterm /dev/ttyUSB0 115200 --echo --develop
 
 G-Code commands can be directly entered in the terminal.
 
+### Advanced Terminal
+
+```bash
+# Defaults to: /dev/ttyUSB0 115200
+python printerface.py
+
+# Some commands:
+
+:send macros/init.gcode
+:send macros/mesh.gcode
+:send macros/heat.gcode
+:send macros/print.gcode
+:send macros/cooldown.gcode
+
+:send macros/move.gcode
+```
+
 ## Specifications
 
 From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Technology: FDM 3D Printer
 * Assembly: Assembly kit
-* Build Size: 220*220*250mm
+* Build Size: 220x220x250mm
 * Nozzle Diameters: 0.4mm
 * Nozzle Count: 1
 * Max. Nozzle Temp: 255℃
@@ -42,9 +62,9 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 * Z-axis Precision: 0.004 mm
 * Max Print Speed: 120mm/s
 * Auto Levelling: NA
-* Supported files: STL，OBJ，G-Code
+* Supported files: STL, OBJ, G-Code
 * Connectivity: USB or SD CARD
-* Machine size: 475*470*620mm
+* Machine size: 475x470x620mm
 * Machine weight: 7.8kg
 * Board Version: Creality V4.2.2 Board 32 Bit with TMC 2209 Driver
 
@@ -60,7 +80,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
             * Preheat ABS
             * Preheat PETG
             * Preheat CUSTOM
-            * Cooldown
+            * Cooldown: _Will set the hotend temperature to 0 C._
         * Firmware Retract
         * Change Filament
         * Unload Filament
@@ -79,13 +99,13 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
         * Front Right
         * Back Left
         * Back Right
-    * Disable Steppers
+    * Disable Steppers: _Allow to freely move by hand the x/y/z axis._
     * Homing >
         * Auto Home
         * Home X
         * Home Y
         * Home Z
-    * Auto Build Mesh: _will heat the bed and probe the NxN grid as specified in 'Mesh Points'.  If the bed is already pre-heated, takes about 3 minutes for 9x9._
+    * Auto Build Mesh: _Will heat the bed and probe the NxN grid as specified in 'Mesh Points'.  If the bed is already pre-heated, takes about 3 minutes for 9x9._
     * Z Probe Wizard >
         * Auto Home
         * Move Z to Home
@@ -94,14 +114,14 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
     * Preheat ABS
     * Preheat PETG
     * Preheat CUSTOM
-    * Cooldown
+    * Cooldown: _Will set the temperature to 0 C for both the hotend and the bed._
 * Control >
     * Temperature >
         * Hotend Temp (0)
         * Bed Temp (0)
         * Fan Speed (0)
         * Preheat PLA Conf >
-            * Hotend Temp (215)
+            * Hotend Temp (220)
             * Bed Temp (60)
             * Fan Speed (255)
             * Store Settings
@@ -116,7 +136,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
             * Fan Speed (128)
             * Store Settings
         * Preheat CUSTOM Conf >
-            * Hotend Temp (190)
+            * Hotend Temp (180)
             * Bed Temp (50)
             * Fan Speed (128)
             * Store Settings
@@ -129,13 +149,10 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
         * Acceleration >
             * Max X Accel (500)
             * Max Y Accel (500)
-            * Max Z Accel (500)
-            * Max E Accel (5000)
-        * Jerk >
-            * Max X Jerk (8)
-            * Max Y Jerk (8)
-            * Max Z Jerk (0.4)
-            * Max E Jerk (5)
+            * Max Z Accel (100)
+            * Max E Accel (1000)
+        * Junction Dev (0.100)
+        * Advance K (0.180)
         * Step Smoothing (true)
         * Steps/mm >
             * X Steps/mm (80)
@@ -149,9 +166,9 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
     * Restore Defaults
     * Reboot Rpinter
     * Info Screen >
-        * Machine Name: Ender3V2-422-BLTUBL-MPC
+        * Machine Name: Ender3V2-422-BLTUBL-LA-MPC
         * Size: 230x230x250
-        * Professional Firmware: Version 2.1.3 MRiscoC ; 20240125 - 01:18 ; OFFICIAL BUILD
+        * Professional Firmware: Version 2.1.3 MRiscoC ; 20240127 - 14:13 ; OFFICIAL BUILD
 * Advanced >
     * Store Settings
     * Mesh Leveling >
@@ -241,9 +258,9 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
         * Auto build Mesh
         * Disable Steppers
     * End-stops diag. >
-        * x_min: open
-        * y_min: open
-        * z_min: TRIGGERED
+        * x\_min: open
+        * y\_min: open
+        * z\_min: TRIGGERED
         * filament: TRIGGERED
         * Continue
     * Printer Stats >
@@ -287,13 +304,105 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 
 ## Print Steps
 
-* Control, Motion, Steps/mm, E Steps/mm: _Adjust according to filament.  If unsure, perform the 100mm extrusion/120mm mark trick._
+* Control, Motion, Steps/mm, E Steps/mm: _Adjust according to filament.  If unsure, perform the 100mm extrusion/120mm mark trick (see below)._
 * Control, Temperature, Bed temp: 60
 * Wait for bed temperature to raise to 60
+* Prepare, Homing, Auto Home: _This is important to deactivate any previously loaded mesh when performing the bed tramming._
 * Prepare, Bed Tramming, Tramming Wizard
 * Prepare, Auto Build Mesh (about 3min), then Save
-* Prepare, Filament Management, Preheat Hotend, Preheat PLA
+* Prepare, Filament Management, Preheat Hotend, Preheat PLA: _It is important to preheat the hotend before doing the Z probe offset to account for the thermal expansion of the hotend._
 * Prepare, Z Probe Wizard: paper sheet trick
 * Prepare, Filament Management, Load Filament
 * Insert micro SD card with the sliced `*.gcode` file
 * Media, Select the gcode file to print
+
+# Notes
+
+## Calibration
+
+### Extruder Calibration
+
+```gcode
+G0 X2 Y2 Z50 F5000 ; Position in corner
+M83 ; E relative
+G1 E100 F60 ; Extrude 100mm at 1mm/s (60mm/min)
+G1 F2000 ; Set back speed to normal
+```
+
+Can also use:
+
+```
+:send macros/ext_calib.gcode
+```
+
+Then:
+
+`new_step = old_step * 100 / (120 - remaining_length)`
+
+## Slicing
+
+### Print
+
+Some extrusion moves to compare:
+
+| Z     | Motion  | E       | F    |
+| ------| ------- | ------- | ---- |
+| 0.28  | 130     | 10      | 1500 |
+| 0.28  | 130     | 10      | 1200 |
+| 0.2   | 145.028 | 5.51199 | 3000 |
+| 0.2   | 129.816 | 4.93381 | 3000 |
+
+Rough formula:
+
+```
+E = motion * .4 ^ 2 / 1.75 ^ 2
+E = motion * 0.05224
+```
+
+Wolfram Alpha:
+
+* 100 mm print of .4 mm x .2 mm
+* Filament is 1.75 mm dia.
+* Fullcontrol extruded 3.326014 mm
+
+Volume in (filament pushed by the extruder gear) match the volume out (molten filament deposited on the bed).
+
+```
+.4mm * .2 mm * 100 mm / (3.326014 mm * pi * (1.75 mm / 2)^2)
+```
+
+### Retraction
+
+* `E-5 F3600`
+* `E5 F2400`
+
+### Wipe
+
+TBD
+
+# Development
+
+## fullcontrol
+
+Manual install wheel (not yet on pypi):
+
+```
+pip install fullcontrol-0.1.1-py3-none-any.whl
+```
+
+Git install from repo:
+
+```
+pip install git+https://github.com/FullControlXYZ/fullcontrol
+```
+
+Run jupyter lab
+
+```
+jupyter-lab
+```
+
+# References
+
+* https://marlinfw.org/meta/gcode/
+* https://github.com/FullControlXYZ/fullcontrol

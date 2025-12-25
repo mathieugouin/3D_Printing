@@ -1,3 +1,10 @@
+# Project specific files
+# This file is used to ignore files that are specific to the project and should not be committed to the repository.
+/examples/
+# Generated design
+fullcontrol.gcode
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
