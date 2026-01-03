@@ -318,18 +318,21 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 
 # Notes
 
+## Filament Parameters
+
+| Filament Brand | Model               | Color        | Step/mm |
+| -------------- | -----               | -----        | ------- |
+| Polymaker      | PolyLite PLA Pro    | Magenta      | 99.0    |
+| Polymaker      | PolyLite PLA        | Aqua Blue    | 98.0    |
+| Polymaker      | Panchroma Silk PLA  | Yellow       | ????    |
+| Polymaker      | Panchroma Silk PLA  | Green        | ????    |
+| Eryone         | Silk PLA            | Blue & Green | 97.3    |
+
 ## Calibration
 
 ### Extruder Calibration
 
-```gcode
-G0 X2 Y2 Z50 F5000 ; Position in corner
-M83 ; E relative
-G1 E100 F60 ; Extrude 100mm at 1mm/s (60mm/min)
-G1 F2000 ; Set back speed to normal
-```
-
-Can also use:
+Make sure hot end is heated.
 
 ```
 :send macros/ext_calib.gcode
