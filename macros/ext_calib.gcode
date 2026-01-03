@@ -2,8 +2,8 @@
 
 ; :send init.gcode
 ; :send heat.gcode
+:send park_front.gcode
 
-G0 X40 Y40 Z80 F5000 ; Position in corner
 M83 ; E relative
 G1 E100 F60 ; Extrude 100mm at 1mm/s (60mm/min)
 G1 F5000 ; Set speed back to normal
