@@ -324,7 +324,7 @@ From https://www.creality3dofficial.com/products/ender-3-v2-3d-printer
 | -------------- | -----               | -----        | ------- |
 | Polymaker      | PolyLite PLA Pro    | Magenta      | 99.0    |
 | Polymaker      | PolyLite PLA        | Aqua Blue    | 98.0    |
-| Polymaker      | Panchroma Silk PLA  | Yellow       | ????    |
+| Polymaker      | Panchroma Silk PLA  | Yellow       | 97.3    |
 | Polymaker      | Panchroma Silk PLA  | Green        | ????    |
 | Eryone         | Silk PLA            | Blue & Green | 97.3    |
 
