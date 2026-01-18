@@ -4,6 +4,7 @@ G1 X2 Y2 F5000
 G1 Z0.2 F500
 G92 E0 ; Set E pos to 0 (reset)
 M83 ; use relative distances for extrusion
+G92 E0 ; Reset extruder position
 
 G1 Y140 E15 F1500 ; print prime line to back
 

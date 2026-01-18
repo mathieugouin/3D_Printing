@@ -11,6 +11,7 @@ M900 K0.58 ; linear advance factor
 G28 ; Home all
 G90 ; Set all axes to absolute position
 M83 ; Sets the extruder to relative movement
+G92 E0 ; Reset extruder position
 G21 ; Set units to millimeters
 
 G4 ; Wait for motion to complete
