@@ -1,13 +1,12 @@
 ; Turn on heat on bed and hotend
 
-; Move to corner to remove filament oozing while heating
-G0 Z50 F1000
-G0 X2 Y2 F3000
+; Move to front left corner to remove filament oozing while heating
+:send park_front.gcode
 
 ; Start heating both
 M140 S60 ; set bed temp (no wait)
 M104 S220 ; set nozzle temp (no wait)
 
 G4
-M300 S440 P100 ; Beep
+:send sound.gcode
 M117 heat_no_wait.gcode

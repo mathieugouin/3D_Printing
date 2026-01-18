@@ -2,5 +2,5 @@
 M140 S0 ; set final bed temp (no wait)
 M104 S0 ; set final nozzle temp (no wait)
 
-M300 S440 P100 ; Beep
+:send sound.gcode
 M117 cooldown.gcode
